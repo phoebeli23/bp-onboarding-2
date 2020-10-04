@@ -1,21 +1,27 @@
 import React from 'react';
+import StyledCheckBox from '../styles/StyledCheckbox';
+import StyledGoal from '../styles/StyledGoal';
+import StyledGoalDetails from '../styles/StyledGoalDetails';
+
 
 const Goal = ({ goal, updates }) => {
     return (
-        <div>
-            <label>
+        <StyledGoal>
+            <StyledCheckBox>
+                {" "}
                 <input type="checkbox" defaultChecked={goal.fields.complete} disabled />
-            </label>
+                <span />
+            </StyledCheckBox>
             <h2>{goal.fields.title}</h2>
-            <div>
+            <StyledGoalDetails>
                 <h3>DETAILS</h3>
                 <p>{goal.fields.details}</p>
                 <h3>UPDATES</h3>
                 {updates.map((update, index) => (
                     <p key={index}>{update.fields.update}</p>
                 ))}
-            </div>
-        </div>
+            </StyledGoalDetails>
+        </StyledGoal>
     );
 }
  
